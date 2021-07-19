@@ -25,6 +25,14 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+app.get('/expenses/new', (req, res)=> {
+  res.render('new')
+})
+
+app.get('/expenses/edit', (req, res) => {
+  res.render('edit')
+})
+
 //監聽器
 app.listen(port, () => {
   console.log(`The Express server is running on http://localhost:${port}.`)
