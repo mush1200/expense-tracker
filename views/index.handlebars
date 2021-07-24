@@ -4,11 +4,9 @@
       <div class="d-flex col-8 col-md-5 col-lg-5">
         <select class="custom-select">
           <option selected>類別</option>
-          <option value="1">家居物業</option>
-          <option value="2">交通出行</option>
-          <option value="3">休閒娛樂</option>
-          <option value="4">餐飲食品</option>
-          <option value="5">其他</option>
+          {{#each categories}}
+          <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
     </div>
@@ -19,10 +17,28 @@
         <p class="display-2 text-warning">66666</p>
       </div>
     </div>
-    
+    <!--list-->
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-auto mr-auto">
+          <h4 style="display: inline; vertical-align: middle;">
+            名字
+          </h4>
+        </div>
+        <div class="col-auto">
+          <a class="btn btn-light" href="/todos/{{this._id}}/edit">修改</a>
+          <form action="/todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+            <button class="btn btn-light" type="submit">刪除</button>
+          </form>
+        </div>
+      </div>
+    </li>
     <!--button-->
     <div class="d-flex justify-content-center button-section mt-5">
-      <button type="submit" class="btn btn-warning btn-lg">新增支出</button>
+      <a href="/expenses/new">
+        <button type="submit" class="btn btn-warning btn-lg">新增支出</button>
+      </a>
+      
     </div>
     
     

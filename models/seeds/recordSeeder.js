@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Record = require('../record') // 載入 record model
+const Category = require('../category')
 const { recordSeeds } = require('./seed.json')
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection

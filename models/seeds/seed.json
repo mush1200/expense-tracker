@@ -34,22 +34,27 @@
   "categorySeeds": [
     {
       "name": "家居物業",
+      "name_en": "home",
       "icon": "fas fa-home"
     },
     {
       "name": "交通出行",
+      "name_en": "transportation",
       "icon": "fa-shuttle-van"
     },
     {
       "name": "休閒娛樂",
+      "name_en": "entertainment",
       "icon": "fa-grin-beam"
     },
     {
       "name": "餐飲食品",
+      "name_en": "food",
       "icon": "fa-utensils"
     },
     {
       "name": "其他",
+      "name_en": "others",
       "icon": "fa-pen"
     }
   ]

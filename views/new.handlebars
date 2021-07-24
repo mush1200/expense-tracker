@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <form action="/expenses/new" method="POST" class="d-flex flex-column align-items-center">
+  <form action="/expenses" method="POST" class="d-flex flex-column align-items-center">
     <div class="col-sm-8">
         <div class="title row">
           <p class="col-5">*必填欄位</p>
@@ -7,15 +7,15 @@
         </div>
         <div class="form-group row">
           <label for="name" class="col-form-label col-sm-2">名稱*:</label>
-          <input type="text" class="form-control col-sm-10" id="name" placeholder="">
+          <input type="text" class="form-control col-sm-10" id="name" placeholder="" name="name" required>
         </div>
         <div class="form-group row">
           <label for="date" class="col-sm-2 col-form-label">日期*:</label>
-          <input type="date" class="form-control col-sm-10" id="date" placeholder="">
+          <input type="date" class="form-control col-sm-10" id="date" placeholder="" name="date" required>
         </div>
         <div class="form-group row">
           <label for="category" class="col-sm-2 col-form-label">類別*:</label>
-          <select class="form-control col-sm-10" id="category" placeholder="類別">
+          <select class="form-control col-sm-10" id="category" placeholder="類別" required>
             <option selected>Select</option>
             <option>家居物業</option>
             <option>交通出行</option>
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group row">
           <label for="amount" class="col-sm-2 col-form-label">金額*:</label>
-          <input type="number" class="form-control col-sm-10" id="amount" placeholder="">
+          <input type="number" class="form-control col-sm-10" id="amount" placeholder="" name="amount" required>
         </div>
         <!--button-->
         <div class="d-flex justify-content-center button-section mt-5">
