@@ -8,12 +8,14 @@ const Record = require('./models/record')
 const Category = require('./models/category')
 //引入mongoose
 require('./config/mongoose')
-
+//載入method-override
+const methodOverride = require('method-override')
 //模板引擎
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
-
+app.use(methodOverride('_method'))
+//類別下拉選單
 const categories = []
 Category.find()
   .lean()
@@ -76,7 +78,7 @@ app.get('/records/:id/edit', (req, res) => {
 })
 
 //修改支出
-app.post('/records/:id/edit', (req, res) => {
+app.put('/records/:id', (req, res) => {
   const id = req.params.id
   const {name, category, date, amount} = req.body
   return Record.findById(id)
@@ -92,7 +94,7 @@ app.post('/records/:id/edit', (req, res) => {
 })
 
 //刪除
-app.post('/records/:id/delete', (req, res) => {
+app.delete('/records/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())
