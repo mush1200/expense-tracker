@@ -30,5 +30,5 @@ app.use(routes)
 
 //監聽器
 app.listen(port, () => {
-  console.log(`The Express server is running on http://localhost:${port}.`)
+  console.log(`App is running on http://localhost:${port}.`)
 })
