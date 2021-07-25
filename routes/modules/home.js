@@ -17,7 +17,6 @@ router.get('/', (req, res) => {
   const categoryIcons = {}
   const selectedCategory = req.query.categorySelect
   let totalAmount = 0
-
   Category.find()
     .lean()
     .then(categories => {
@@ -39,9 +38,6 @@ router.get('/', (req, res) => {
         })
     })
     .catch(error => console.log(error))
-
 })
-
-
 // 匯出路由器
 module.exports = router
