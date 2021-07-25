@@ -24,6 +24,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 //將request導入路由器
 app.use(routes)
 
