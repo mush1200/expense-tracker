@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <form action="/expenses" method="POST" class="d-flex flex-column align-items-center">
+  <form action="/records" method="POST" class="d-flex flex-column align-items-center">
     <div class="col-sm-8">
         <div class="title row">
           <p class="col-5">*必填欄位</p>
@@ -15,13 +15,11 @@
         </div>
         <div class="form-group row">
           <label for="category" class="col-sm-2 col-form-label">類別*:</label>
-          <select class="form-control col-sm-10" id="category" placeholder="類別" required>
+          <select class="form-control col-sm-10" id="category" placeholder="類別" name="category" required>
             <option selected>Select</option>
-            <option>家居物業</option>
-            <option>交通出行</option>
-            <option>休閒娛樂</option>
-            <option>餐飲食品</option>
-            <option>其他</option>
+            {{#each categories}}
+            <option>{{this.categoryName}}</option>
+            {{/each}}
           </select>
         </div>
         <div class="form-group row">

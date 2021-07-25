@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const categorySchema = new Schema({
-  name: {
+  categoryName: {
     type: String, // 資料型別是字串
     required: true // 這是個必填欄位
   },
-  name_en: {
+  categoryName_en: {
     type: String,
     require: true
   },
-  icon: {
+  categoryIcon: {
     type: String,
     required: true
   }

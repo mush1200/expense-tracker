@@ -33,29 +33,29 @@
   ],
   "categorySeeds": [
     {
-      "name": "家居物業",
-      "name_en": "home",
-      "icon": "fas fa-home"
+      "categoryName": "家居物業",
+      "categoryName_en": "home",
+      "categoryIcon": "fas fa-home"
     },
     {
-      "name": "交通出行",
-      "name_en": "transportation",
-      "icon": "fa-shuttle-van"
+      "categoryName": "交通出行",
+      "categoryName_en": "transportation",
+      "categoryIcon": "fas fa-shuttle-van"
     },
     {
-      "name": "休閒娛樂",
-      "name_en": "entertainment",
-      "icon": "fa-grin-beam"
+      "categoryName": "休閒娛樂",
+      "categoryName_en": "entertainment",
+      "categoryIcon": "fas fa-grin-beam"
     },
     {
-      "name": "餐飲食品",
-      "name_en": "food",
-      "icon": "fa-utensils"
+      "categoryName": "餐飲食品",
+      "categoryName_en": "food",
+      "categoryIcon": "fas fa-utensils"
     },
     {
-      "name": "其他",
-      "name_en": "others",
-      "icon": "fa-pen"
+      "categoryName": "其他",
+      "categoryName_en": "others",
+      "categoryIcon": "fas fa-pen"
     }
   ]
 }

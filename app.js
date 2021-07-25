@@ -8,8 +8,8 @@ const Record = require('./models/record')
 const Category = require('./models/category')
 //載入mongoose
 const mongoose = require('mongoose')
-const category = require('./models/category')
-mongoose.connect('mongodb://localhost/Record', { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection  //取得資料庫連線狀態
 
 //連線異常
@@ -25,34 +25,83 @@ db.once('open', () => {
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
+
+const categories = []
+Category.find()
+  .lean()
+  .then(category => categories.push(...category))
+  .catch(error => console.log(error))
+
 //路由器
+//首頁
 app.get('/', (req, res) => {
-  const categories = []
+  const categoryIcons = {}
+  const selectedCategory = req.query.categorySelect
+  let totalAmount = 0
+
   Category.find()
     .lean()
-    .then(category => categories.push(...category))
+    .then(categories => {
+      categories.forEach((item) => {
+        categoryIcons[item.categoryName] = item.categoryIcon
+      })
+    })
+    .then(() => {
+      Record.find()
+        .lean()
+        .sort({ date: 'desc'})
+        .then((records) => {
+          records.forEach(record => record['icon'] = categoryIcons[record.category])
+          if (selectedCategory) {
+            records = records.filter(record => record.category === selectedCategory)
+          }
+          records.forEach(record => totalAmount += record.amount)
+          res.render('index', { categories, totalAmount, selectedCategory, records})
+        })
+    })
     .catch(error => console.log(error))
-  res.render('index')
+  
+})
+//new page
+app.get('/records/new', (req, res)=> {
+  res.render('new',{ categories})
 })
 
-app.get('/expenses/new', (req, res)=> {
-  res.render('new')
-})
-
-app.post('/expenses', (req, res) => {
+//新增支出
+app.post('/records', (req, res) => {
   const { name, date, category, amount} = req.body
   if (name === "" || date === "" || category === "" || amount === "") {
-    return res.redirect('/expenses/new')
+    return res.redirect('/records/new')
   }
   Record.create({name, date, category, amount})
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })
 
-app.get('/expenses/edit', (req, res) => {
-  res.render('edit')
+//edit page
+app.get('/records/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .lean()
+    .then((record) => res.render('edit', { record, categories }))
+    .catch(error => console.log(error))
 })
 
+//修改支出
+app.post('/records/:id/edit', (req, res) => {
+  const id = req.params.id
+  const {name, category, date, amount} = req.body
+  return Record.findById(id)
+    .then((record) => {
+      record.name = name
+      record.category = category
+      record.date = date
+      record.amount = amount
+      return record.save()
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 //監聽器
 app.listen(port, () => {
   console.log(`The Express server is running on http://localhost:${port}.`)

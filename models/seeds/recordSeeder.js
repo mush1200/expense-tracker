@@ -17,7 +17,7 @@ db.once('open', () => {
       return db.close()
     })
     .then(() => {
-      console.log('mongodb disconnected!')
+      console.log('database connection close...')
     })
     .catch(error => console.error(error))
 })
