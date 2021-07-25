@@ -29,6 +29,6 @@ app.use(express.static('public'))
 app.use(routes)
 
 //監聽器
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}.`)
 })
