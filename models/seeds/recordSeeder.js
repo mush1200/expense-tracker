@@ -1,16 +1,10 @@
-const mongoose = require('mongoose')
 const Record = require('../record') // 載入 record model
 const Category = require('../category')
 const { recordSeeds } = require('./seed.json')
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-//連線錯誤
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+//引入mongoose
+const db = require('../../config/mongoose')
 //連線正常
 db.once('open', () => {
-  
   Record.create(recordSeeds)
     .then(() => {
       console.log('Success to set the record seeder')

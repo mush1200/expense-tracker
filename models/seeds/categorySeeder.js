@@ -1,13 +1,8 @@
-const mongoose = require('mongoose')
 const Category = require('../category') // 載入 category model
 const Record = require('../record')
 const { categorySeeds } = require('./seed.json')
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-//連線錯誤
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+//引入mongoose
+const db = require('../../config/mongoose')
 //連線正常
 db.once('open', () => {
   console.log('mongodb connected!')
