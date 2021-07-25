@@ -6,6 +6,7 @@ const Category = require('../../models/category')
 //載入Record model
 const Record = require('../../models/record')
 //類別下拉選單
+
 const categories = []
 Category.find()
   .lean()

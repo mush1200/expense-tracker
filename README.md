@@ -12,7 +12,7 @@
 ## 安裝流程
 1. 在終端機輸入指令 clone 此專案至本機電腦
 ```
-git clone 
+git clone https://github.com/mush1200/expense-tracker.git
  ```
 2. 進入專案資料夾
 ```

@@ -10,6 +10,7 @@ const routes = require('./routes/index')
 //引入mongoose
 require('./config/mongoose')
 
+
 //模板引擎
 app.engine('handlebars', exphbs({
    defaultLayout: 'main',
@@ -27,6 +28,8 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 //將request導入路由器
 app.use(routes)
+
+
 
 //監聽器
 app.listen(PORT, () => {
