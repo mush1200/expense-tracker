@@ -1,7 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 //載入method-override
 const methodOverride = require('method-override')
@@ -30,5 +30,5 @@ app.use(routes)
 
 //監聽器
 app.listen(port, () => {
-  console.log(`App is running on http://localhost:${port}.`)
+  console.log(`App is running on http://localhost:${PORT}.`)
 })
