@@ -16,6 +16,13 @@ const recordSchema = new Schema({
   amount: {
     type: Number,
     required: true
+  },
+  userId: {
+    type: Schema.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true,
+    
   }
 })
 module.exports = mongoose.model('Record', recordSchema)
