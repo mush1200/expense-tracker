@@ -2,7 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
 const session = require('express-session')
-
+const usePassport = require('./config/passport')
 
 //載入method-override
 const methodOverride = require('method-override')
@@ -36,6 +36,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+usePassport(app)
 //將request導入路由器
 app.use(routes)
 
