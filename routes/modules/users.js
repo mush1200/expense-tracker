@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
     .then(user => {
       if (user) {
         errors.push({message: '這個Email已經註冊過了。'})
-        res.render('register', {
+        return res.render('register', {
           name,
           email,
           password,
@@ -59,6 +59,7 @@ router.post('/register', (req, res) => {
         .catch(err => console.log(err))
       
     })
+    .catch(error => console.log(error))
 })
 
 //登出
