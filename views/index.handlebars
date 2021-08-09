@@ -9,6 +9,13 @@
             <option value="{{this.categoryName}}">{{this.categoryName}}</option>
             {{/each}}
           </select>
+
+          <select class="custom-select mr-sm-5" name="monthSelect" onchange="submit()">
+            <option selected>月份</option>
+            {{!-- {{#each months}} --}}
+            <option value="">1月</option>
+            {{!-- {{/each}} --}}
+          </select>
         </div>
       </form>
     </div>

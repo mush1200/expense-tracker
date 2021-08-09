@@ -26,7 +26,10 @@ const recordSchema = new Schema({
     ref: 'User',
     index: true,
     required: true,
-    
+  },
+  monthId: {
+    type: Schema.ObjectId,
+    ref: 'Month',
   }
 })
 module.exports = mongoose.model('Record', recordSchema)

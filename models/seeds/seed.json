@@ -57,5 +57,74 @@
       "categoryName_en": "others",
       "categoryIcon": "fas fa-pen"
     }
+  ],
+  "monthSeeds": [
+    {
+      "name": "一月份",
+      "name_en": "Jan",
+      "name_number": "1"
+    },
+    {
+      "name": "二月份",
+      "name_en": "Feb",
+      "name_number": "2"
+    },
+    {
+      "name": "三月份",
+      "name_en": "Mar",
+      "name_number": "3"
+    },
+    {
+      "name": "四月份",
+      "name_en": "Apr",
+      "name_number": "4"
+    },
+    {
+      "name": "五月份",
+      "name_en": "May",
+      "name_number": "5"
+    },
+    {
+      "name": "六月份",
+      "name_en": "Jun",
+      "name_number": "6"
+    },
+    {
+      "name": "七月份",
+      "name_en": "Jul",
+      "name_number": "1"
+    },
+    {
+      "name": "八月份",
+      "name_en": "Aug",
+      "name_number": "8"
+    },
+    {
+      "name": "九月份",
+      "name_en": "Sep",
+      "name_number": "9"
+    },
+    {
+      "name": "十月份",
+      "name_en": "Oct",
+      "name_number": "10"
+    },
+    {
+      "name": "十一月份",
+      "name_en": "Nov",
+      "name_number": "11"
+    },
+    {
+      "name": "十二月份",
+      "name_en": "Dec",
+      "name_number": "12"
+    }
+  ],
+  "userSeeds" : [
+    {
+      "name": "root",
+      "email": "root@example.com",
+      "password": "12345678"
+    }
   ]
 }
