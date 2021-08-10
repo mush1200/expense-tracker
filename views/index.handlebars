@@ -4,17 +4,17 @@
       <form action="/" method="GET">
         <div class="col-auto">
           <select class="custom-select mr-sm-5" name="categorySelect" onchange="submit()">
-            <option selected>類別</option>
+            <option value="" selected>類別</option>
             {{#each categories}}
-            <option value="{{this.categoryName}}">{{this.categoryName}}</option>
+            <option value="{{this.categoryName}}" {{#is this.categoryName ../selectedCategory }} selected {{/is}}>{{this.categoryName}}</option>
             {{/each}}
           </select>
 
           <select class="custom-select mr-sm-5" name="monthSelect" onchange="submit()">
-            <option selected>月份</option>
-            {{!-- {{#each months}} --}}
-            <option value="">1月</option>
-            {{!-- {{/each}} --}}
+            <option value="" selected>月份</option>
+            {{#each months}}
+            <option value="{{this.name_number}}" {{#is this.name_number ../selectedMonth}} selected {{/is}}>{{this.name}}</option>
+            {{/each}}
           </select>
         </div>
       </form>

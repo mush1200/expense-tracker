@@ -10,7 +10,7 @@ const monthSchema = new Schema({
     require: true
   },
   name_number: {
-    type: String,
+    type: Number,
     require: true
   }
 })

@@ -1,6 +1,8 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const hbshelpers = require('handlebars-helpers')
 const app = express()
+const multihelpers = hbshelpers()
 const session = require('express-session')
 const usePassport = require('./config/passport')
 const flash = require('connect-flash')
@@ -18,7 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 const PORT = process.env.PORT || 3000
 //模板引擎
 app.engine('handlebars', exphbs({
-   defaultLayout: 'main',
+   defaultLayout: 'main', helpers: multihelpers,
   helpers: {
     toDate: function (date) {
       return new Date(date.getTime() - (date.getTimezoneOffset() * 60 * 1000))
