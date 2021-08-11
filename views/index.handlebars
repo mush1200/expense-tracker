@@ -11,7 +11,7 @@
           </select>
 
           <select class="custom-select mr-sm-5" name="monthSelect" onchange="submit()">
-            <option value="" selected>月份</option>
+            <option value="" selected>所有月份</option>
             {{#each months}}
             <option value="{{this.name_number}}" {{#is this.name_number ../selectedMonth}} selected {{/is}}>{{this.name}}</option>
             {{/each}}
