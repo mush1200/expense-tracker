@@ -5,7 +5,6 @@ const { categorySeeds } = require('./seed.json')
 const db = require('../../config/mongoose')
 //連線正常
 db.once('open', () => {
-  console.log('mongodb connected!')
   Category.create(categorySeeds)
     .then(() => {
       console.log('Success to set the category seeder')

@@ -1,5 +1,6 @@
 <div class="container mt-5">
-  <div class="d-flex flex-column col-12 col-md-8 mx-auto">
+  <div class="d-flex flex-column col-12 col-md-8 mx-auto"> 
+     {{> message }}  
     <div class="d-flex category-section justify-content-center">
       <form action="/" method="GET">
         <div class="col-auto">
@@ -19,7 +20,6 @@
         </div>
       </form>
     </div>
-    
     <div class="d-flex amount-section justify-content-center mt-3">
       <div class="d-flex totalAmount">總金額:</div>
       <div class="showAmount d-flex p-2 bd-highlight">
@@ -28,7 +28,7 @@
     </div>
     <!--list-->
       {{#each records}}
-      <li class="list-group-item">
+      <li class="list-group-item" id="data-panel">
         <div class="row">
           <div class="col-auto mr-auto">
             <i class="{{this.icon}}"></i>
@@ -40,28 +40,47 @@
           </div>
           <h4 class="amount" style="display: inline;vertical-align-middle;">{{this.amount}}</h4>
           <div class="col-auto">
-            
+            <!--modal button-->
+            <button type="button" class="btn btn-light btn-delete" data-toggle="modal" data-target="#deleteModal" data-id="{{ this._id }}" data-info="{{ toDate this.date}}的{{ this.name }}">
+              刪除
+            </button>
             <a class="btn btn-light" href="/records/{{this._id}}/edit">編輯</a>
-            <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-              <button class="btn btn-light" type="submit">刪除</button>
-            </form>
+            {{!-- <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+              <button class="btn btn-light btn-delete" type="submit">刪除</button>
+            </form> --}}
           </div>
         </div>
       </li>
       {{/each}}
 
-
-    
     <!--button-->
     <div class="d-flex justify-content-center button-section mt-5">
       <a href="/records/new">
         <button type="submit" class="btn btn-warning btn-lg">新增支出</button>
-      </a>
-      
-    </div>
-    
-    
+      </a>     
+    </div>   
   </div>
-  
+</div>
 
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">刪除紀錄</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="delete-modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+        <form action="" method="post" id="delete-form">
+          <button type="submit" class="btn btn-primary">刪除</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

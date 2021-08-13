@@ -27,7 +27,10 @@ router.post('/', (req, res) => {
     return res.redirect('/records/new')
   }
   Record.create({ name, date, category, amount, merchant, userId })
-    .then(() => res.redirect('/'))
+    .then(() => {
+      req.flash('success_msg', '已成功建立支出紀錄')
+      res.redirect('/')
+    })
     .catch(error => console.error(error))
 })
 
@@ -55,7 +58,10 @@ router.put('/:id', (req, res) => {
       record.merchant = merchant
       return record.save()
     })
-    .then(() => res.redirect('/'))
+    .then(() => {
+      req.flash('success_msg', '已成功修改支出紀錄')
+      res.redirect('/')
+    })
     .catch(error => console.log(error))
 })
 
@@ -65,7 +71,10 @@ router.delete('/:id', (req, res) => {
   const _id = req.params.id
   return Record.findOne({ _id, userId })
     .then(record => record.remove())
-    .then(() => res.redirect('/'))
+    .then(() => {
+      req.flash('success_msg', '已成功刪除支出紀錄')
+      res.redirect('/')
+    })
     .catch(error => console.log(error))
 })
 
