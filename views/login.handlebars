@@ -6,13 +6,13 @@
       <form action="/users/login" method="POST" id="form" novalidate> 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required>
+          <input type="email" id="email" name="email" class="form-control" maxlength="50" placeholder="Enter Email" required>
           <div class="valid-feedback">Good!</div>
           <div class="invalid-feedback">This field is required!</div>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required>
+          <input type="password" id="password" name="password" class="form-control" minlength="6" maxlength="12" placeholder="Enter 6~12 characters Password" required>
           <div class="valid-feedback">Good!</div>
           <div class="invalid-feedback">This field is required!</div>
         </div>

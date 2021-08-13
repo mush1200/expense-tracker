@@ -8,7 +8,7 @@
         <div class="form-group row">
           <label for="name" class="col-form-label col-sm-2">名稱*:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="name" placeholder="" name="name" required>
+            <input type="text" class="form-control" id="name" placeholder="" maxlength="30" name="name" required>
             <div class="valid-feedback">Good!</div>
             <div class="invalid-feedback">This field is required!</div>
           </div>
@@ -38,7 +38,7 @@
         <div class="form-group row">
           <label for="merchant" class="col-form-label col-sm-2">店家*:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="merchant" placeholder="" name="merchant" required>
+            <input type="text" class="form-control" id="merchant" maxlength="30" placeholder="" name="merchant" required>
             <div class="valid-feedback">Good!</div>
             <div class="invalid-feedback">This field is required!</div>
           </div>
@@ -46,7 +46,7 @@
         <div class="form-group row">
           <label for="amount" class="col-sm-2 col-form-label">金額*:</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" id="amount" placeholder="" name="amount" required>
+            <input type="number" class="form-control" id="amount" min="0" placeholder="" name="amount" required>
             <div class="valid-feedback">Good!</div>
             <div class="invalid-feedback">This field is required!</div>
           </div>
