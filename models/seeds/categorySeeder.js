@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const Category = require('../category') // 載入 category model
 const Record = require('../record')
 const { categorySeeds } = require('./seed.json')

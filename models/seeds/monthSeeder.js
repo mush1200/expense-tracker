@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const Month = require('../months') // 載入 Month model
 const { monthSeeds } = require('./seed.json')
 //引入mongoose

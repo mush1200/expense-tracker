@@ -27,8 +27,9 @@
       </div>
     </div>
     <!--list-->
+    <ul class="list-group" id="data-panel">
       {{#each records}}
-      <li class="list-group-item" id="data-panel">
+      <li class="list-group-item">
         <div class="row">
           <div class="col-auto mr-auto">
             <i class="{{this.icon}}"></i>
@@ -41,7 +42,8 @@
           <h4 class="amount" style="display: inline;vertical-align-middle;">{{this.amount}}</h4>
           <div class="col-auto">
             <!--modal button-->
-            <button type="button" class="btn btn-light btn-delete" data-toggle="modal" data-target="#deleteModal" data-id="{{ this._id }}" data-info="{{ toDate this.date}}的{{ this.name }}">
+            <button type="button" class="btn btn-light btn-delete" data-toggle="modal" data-target="#deleteModal"
+              data-id="{{ this._id }}" data-info="{{ toDate this.date}}的{{ this.name }}">
               刪除
             </button>
             <a class="btn btn-light" href="/records/{{this._id}}/edit">編輯</a>
@@ -52,7 +54,8 @@
         </div>
       </li>
       {{/each}}
-
+    </ul>
+      
     <!--button-->
     <div class="d-flex justify-content-center button-section mt-5">
       <a href="/records/new">
